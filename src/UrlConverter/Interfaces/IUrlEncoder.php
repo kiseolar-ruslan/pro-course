@@ -11,7 +11,7 @@ interface IUrlEncoder
     /**
      * @param string $url
      * @return string
-     * @throws InvalidArgumentException
+     *@throws InvalidArgumentException
      */
     public function encode(string $url): string;
 }

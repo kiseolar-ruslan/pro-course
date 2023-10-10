@@ -26,4 +26,4 @@ $urlConverter = new UrlConverter(
 );
 
 //echo $urlConverter->encode($url2) . PHP_EOL;
-echo $urlConverter->decode("8CC2D59D") . PHP_EOL;
+echo $urlConverter->decode("492E2") . PHP_EOL;
