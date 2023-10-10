@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'php-pro/app',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '13633835db92decf0e624ae9fde257c4c751253b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'php-pro/app' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '13633835db92decf0e624ae9fde257c4c751253b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

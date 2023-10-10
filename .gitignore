@@ -1,5 +1,9 @@
+/vendor/
 .idea
+/logs/
+/docker/databases/shutdown_handler.sh
+/storage/
 .env
 .DS_Store
 /config/params.php
-/var
+/var/logs
