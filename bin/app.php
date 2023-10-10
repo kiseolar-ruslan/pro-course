@@ -69,7 +69,6 @@ $app->addCommand(
         new \App\DzDi\RequestMonologLogger(
             new Logger('test'),
             new Client(),
-            new StreamHandler(__DIR__ . '/../storage/test'),
             new UrlValidator(new Client())
         )
     )

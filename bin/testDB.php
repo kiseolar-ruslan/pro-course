@@ -5,7 +5,7 @@ use App\TestUser;
 
 $container = require_once __DIR__ . '/../src/bootstrap.php';
 try {
-    $dbh = new PDO("mysql:host=db_mysql;dbname=base", "doctor", "pass4doctor");
+    $dbh = new PDO("mysql:host=db_mysql;dbname=base", "ukrlan", "pass4ukrlan");
 
     $allUsers = $dbh->query("select * from users")->fetchAll(PDO::FETCH_CLASS, TestUser::class);
 
