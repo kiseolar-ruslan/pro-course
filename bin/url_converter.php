@@ -25,5 +25,5 @@ $urlConverter = new UrlConverter(
     $configHandler->get('urlConverter.codeLength'),
 );
 
-//echo $urlConverter->encode($url2) . PHP_EOL;
-echo $urlConverter->decode("492E2") . PHP_EOL;
+//echo $urlConverter->encode($url) . PHP_EOL;
+echo $urlConverter->decode("A7990") . PHP_EOL;

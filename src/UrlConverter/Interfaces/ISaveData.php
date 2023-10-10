@@ -10,9 +10,8 @@ interface ISaveData
 {
     /**
      * @param array|string $data
-     * @param string $fileName
      * @return bool|int
      * @throws InvalidArgumentException
      */
-    public function saveData(array|string $data, string $fileName): bool|int;
+    public function saveData(array|string $data): bool|int;
 }

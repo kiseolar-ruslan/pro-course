@@ -29,13 +29,13 @@ class UrlConverter implements IUrlEncoder, IUrlDecoder
     /**
      * @throws InvalidArgumentException
      */
-    public function encode(string $url, string $fileName = self::FILE_NAME): string
+    public function encode(string $url): string
     {
         $this->validateUrl($url);
         try {
             $code = $this->repository->getCodeByUrl($url);
         } catch (InvalidArgumentException) {
-            $code = $this->generateAndSaveCode($url, $fileName);
+            $code = $this->generateAndSaveCode($url);
         }
 
         return $code;
@@ -55,12 +55,12 @@ class UrlConverter implements IUrlEncoder, IUrlDecoder
     /**
      * @throws InvalidArgumentException
      */
-    protected function generateAndSaveCode(string $url, string $fileName = self::FILE_NAME): string
+    protected function generateAndSaveCode(string $url): string
     {
         $inputUrl = $url;
         $code     = $this->generateCode($url);
         $preparedData[$code] = $inputUrl;
-        $this->saveData->saveData($preparedData, $fileName);
+        $this->saveData->saveData($preparedData);
 
         return $code;
     }
