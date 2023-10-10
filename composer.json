@@ -1,0 +1,24 @@
+{
+  "name": "php-pro/app",
+  "type": "project",
+  "require": {
+    "guzzlehttp/guzzle": "7.*",
+    "psr/container": "*",
+    "ufo-cms/colored_cli": "^1.0",
+    "monolog/monolog": "3.*",
+    "nesbot/carbon": "^2.69",
+    "ext-pdo": "*"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Ruslan Krietsu"
+    }
+  ],
+  "minimum-stability": "stable"
+}
