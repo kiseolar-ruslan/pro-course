@@ -32,6 +32,7 @@ class UrlConverter implements IUrlEncoder, IUrlDecoder
     public function encode(string $url): string
     {
         $this->validateUrl($url);
+
         try {
             $code = $this->repository->getCodeByUrl($url);
         } catch (InvalidArgumentException) {

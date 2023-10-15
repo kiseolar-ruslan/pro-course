@@ -35,7 +35,7 @@ class FileRepository implements ICodeRepository
      */
     public function getUrlByCode(string $code): string
     {
-        if ($this->codeIsset($code) === false) {
+        if (false === $this->codeIsset($code)) {
             throw new InvalidArgumentException();
         }
 

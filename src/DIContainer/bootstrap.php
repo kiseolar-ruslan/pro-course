@@ -12,7 +12,9 @@ return new Container(
     ConfigHandler::getInstance()->addConfigs(
         require_once __DIR__ . '/../../config/params.php'
     ),
-    require_once __DIR__ . '/configure_parameters.php',
-    require_once __DIR__ . '/configure_services.php',
-    require_once __DIR__ . '/configure_services2.php',
+    require_once __DIR__ . '/../../config/configure_services.php',
+    require_once __DIR__ . '/../../config/dataBase.php',
 );
+
+
+

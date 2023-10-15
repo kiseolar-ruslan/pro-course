@@ -9,9 +9,9 @@ use InvalidArgumentException;
 interface ISaveData
 {
     /**
-     * @param array|string $data
+     * @param array $data
      * @return bool|int
      * @throws InvalidArgumentException
      */
-    public function saveData(array|string $data): bool|int;
+    public function saveData(array $data): bool|int;
 }

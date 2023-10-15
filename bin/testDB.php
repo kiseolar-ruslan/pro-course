@@ -4,6 +4,7 @@
 use App\TestUser;
 
 $container = require_once __DIR__ . '/../src/bootstrap.php';
+
 try {
     $dbh = new PDO("mysql:host=db_mysql;dbname=base", "ukrlan", "pass4ukrlan");
 

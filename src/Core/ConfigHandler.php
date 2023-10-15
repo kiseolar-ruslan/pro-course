@@ -6,6 +6,8 @@ use App\Core\Exceptions\ParameterNotFoundException;
 use App\Core\Interfaces\IConfigHandler;
 use App\Core\Interfaces\ISingleton;
 use App\Core\Traits\Singletonable;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * @property-read $dbFile
@@ -53,6 +55,10 @@ class ConfigHandler implements IConfigHandler, ISingleton
         return $this->getRealPath($id);
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     public function __get(string $name)
     {
         return $this->get(str_replace('_', '.', $name));
