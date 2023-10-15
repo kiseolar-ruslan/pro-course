@@ -74,14 +74,21 @@ return [
         return new ValidateUrl();
     },
 
-    UrlConverter::class => function ($container) {
+    'databaseUrlConverter' => function ($container) {
         return new UrlConverter(
             $container->get(DataBaseRepository::class),
-//            $container->get(FileRepository::class),
-//            $container->get(SavingUrlToTheFile::class),
             $container->get(SavingDataToTheDB::class),
             $container->get(ValidateUrl::class),
             $container->get('urlConverter.codeLength'),
         );
-    }
+    },
+
+    'fileUrlConverter' => function ($container) {
+        return new UrlConverter(
+            $container->get(FileRepository::class),
+            $container->get(SavingUrlToTheFile::class),
+            $container->get(ValidateUrl::class),
+            $container->get('urlConverter.codeLength'),
+        );
+    },
 ];

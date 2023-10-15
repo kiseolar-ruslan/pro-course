@@ -12,7 +12,7 @@ use App\UrlConverter\Validate\ValidateUrl;
 require_once __DIR__ . '/../vendor/autoload.php';
 $container = require_once __DIR__ . '/../src/DIContainer/bootstrap.php';
 
-$urlConverter = $container->get(UrlConverter::class);
+$urlConverter = $container->get('databaseUrlConverter');
 $container->get(DataBaseConnectionAR::class);
 
 
@@ -20,6 +20,10 @@ $url  = 'https://google.com';
 $url2 = 'https://facebook.com';
 $url3 = 'https://youtube.com';
 
-//echo $urlConverter->encode($url3) . PHP_EOL;
-echo $urlConverter->decode('289E0') . PHP_EOL;
+$code = $urlConverter->encode($url2);
+echo $code . PHP_EOL;
+$decode = $urlConverter->decode($code) . PHP_EOL;
+echo $decode;
+exit;
+
 
