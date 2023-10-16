@@ -19,11 +19,12 @@ $container->get(DataBaseConnectionAR::class);
 $url  = 'https://google.com';
 $url2 = 'https://facebook.com';
 $url3 = 'https://youtube.com';
+$url4 = 'https://www.phptutorial.net/';
 
 $code = $urlConverter->encode($url2);
 echo $code . PHP_EOL;
-$decode = $urlConverter->decode($code) . PHP_EOL;
-echo $decode;
-exit;
+$decode = $urlConverter->decode($code);
+echo $decode . PHP_EOL;
+//exit;
 
 

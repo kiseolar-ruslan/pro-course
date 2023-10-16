@@ -11,7 +11,7 @@ class SavingUrlToTheFile implements ISaveData
 {
     protected const FILE_NAME = 'url.json';
 
-    public function saveData(array|string $data): bool
+    public function saveData(array $data): void
     {
         if (file_exists(self::FILE_NAME) === false) {
             $steam = fopen(self::FILE_NAME, 'w');
@@ -40,7 +40,5 @@ class SavingUrlToTheFile implements ISaveData
 
         fwrite($steam, $jsonFormat);
         fclose($steam);
-
-        return true;
     }
 }

@@ -10,11 +10,7 @@ use InvalidArgumentException;
 
 class SavingDataToTheDB implements ISaveData
 {
-    public function __construct(protected UrlCode $urlCode)
-    {
-    }
-
-    public function saveData(array $data): bool|int
+    public function saveData(array $data): void
     {
         if (true === empty($data)) {
             throw new InvalidArgumentException();
@@ -23,9 +19,9 @@ class SavingDataToTheDB implements ISaveData
         $code = array_key_first($data);
         $url  = current($data);
 
-        $this->urlCode->code = $code;
-        $this->urlCode->url  = $url;
-
-        return $this->urlCode->save();
+        UrlCode::create([
+                            'code' => $code,
+                            'url'  => $url,
+                        ]);
     }
 }

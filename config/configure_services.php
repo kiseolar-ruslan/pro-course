@@ -67,7 +67,7 @@ return [
     },
 
     SavingDataToTheDB::class => function () {
-        return new SavingDataToTheDB(new UrlCode());
+        return new SavingDataToTheDB();
     },
 
     ValidateUrl::class => function () {

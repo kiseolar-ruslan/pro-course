@@ -70,7 +70,7 @@ class UrlConverter implements IUrlEncoder, IUrlDecoder
     {
         $time    = time();
         $randNum = rand(0, 9);
-        $lowerCaseCode = hash('sha256', $time . $url . $randNum) . PHP_EOL;
+        $lowerCaseCode = hash('sha256', $time . $url . $randNum);
         return substr(mb_strtoupper($lowerCaseCode), 0, $this->codeLength);
     }
 
