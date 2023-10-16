@@ -20,8 +20,8 @@ class SavingDataToTheDB implements ISaveData
         $url  = current($data);
 
         UrlCode::create([
-                            'code' => $code,
-                            'url'  => $url,
-                        ]);
+            'code' => $code,
+            'url'  => $url,
+        ]);
     }
 }

@@ -10,12 +10,8 @@ $container = require_once __DIR__ . '/src/DIContainer/bootstrap.php';
 $container->get(DataBaseConnectionAR::class);
 
 
-//$a = UrlCode::create([
-//    'code' => 'qwe123',
-//    'url' => 'test@'
-//    ]);
 
-
+//Delete all identifier data
 //$urlCodeModel = new UrlCode();
 //$id = UrlCode::pluck("id")->toArray();
 //UrlCode::whereIn('id', $id)->delete();
