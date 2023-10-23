@@ -1,6 +1,7 @@
 {
   "name": "php-pro/app",
   "type": "project",
+  "license": "MIT",
   "require": {
     "guzzlehttp/guzzle": "7.*",
     "psr/container": "*",
@@ -8,9 +9,10 @@
     "monolog/monolog": "3.*",
     "nesbot/carbon": "^2.69",
     "ext-pdo": "*",
-    "illuminate/database": "v9.*"
+    "illuminate/database": "v9.*",
+    "doctrine/orm": "*",
+    "symfony/cache": "*"
   },
-  "license": "MIT",
   "autoload": {
     "psr-4": {
       "App\\": "src/"

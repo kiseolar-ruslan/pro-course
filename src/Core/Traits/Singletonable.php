@@ -2,6 +2,8 @@
 
 namespace App\Core\Traits;
 
+use Exception;
+
 trait Singletonable
 {
     protected static ?self $instance = null;
@@ -18,21 +20,33 @@ trait Singletonable
         return static::$instance;
     }
 
+    /**
+     * @throws Exception
+     */
     protected function closeMethod(): void
     {
-        throw new \Exception('This class is singleton');
+        throw new Exception('This class is singleton');
     }
 
+    /**
+     * @throws Exception
+     */
     public function __clone(): void
     {
         $this->closeMethod();
     }
 
+    /**
+     * @throws Exception
+     */
     public function __wakeup(): void
     {
         $this->closeMethod();
     }
 
+    /**
+     * @throws Exception
+     */
     public function __unserialize(array $data): void
     {
         $this->closeMethod();
