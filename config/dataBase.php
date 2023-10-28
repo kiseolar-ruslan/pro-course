@@ -17,6 +17,7 @@ return [
             $container->get('db.mysql.dockerHost'),
         );
     },
+
     DataBaseConnectionDM::class => function ($container) {
         return new DataBaseConnectionDM(
             $container->get('db.mysql.dbName'),
@@ -26,7 +27,8 @@ return [
             $container->get('devMode'),
         );
     },
-    EntityManager::class        => function ($container) {
+
+    EntityManager::class => function ($container) {
         $dbConnectionDM = $container->get(DataBaseConnectionDM::class);
         return $dbConnectionDM->getEM();
     }
