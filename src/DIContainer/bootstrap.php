@@ -14,6 +14,7 @@ return new Container(
     ),
     require_once __DIR__ . '/../../config/configure_services.php',
     require_once __DIR__ . '/../../config/dataBase.php',
+    require_once __DIR__ . '/../../config/web.php',
 );
 
 

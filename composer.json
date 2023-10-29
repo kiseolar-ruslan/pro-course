@@ -11,7 +11,8 @@
     "ext-pdo": "*",
     "illuminate/database": "v9.*",
     "doctrine/orm": "*",
-    "symfony/cache": "*"
+    "symfony/cache": "*",
+    "ext-cassandra": "*"
   },
   "autoload": {
     "psr-4": {

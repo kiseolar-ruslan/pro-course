@@ -83,7 +83,7 @@ return [
         );
     },
 
-    'fileUrlConverter' => function ($container) {
+    UrlConverter::class => function ($container) {
         return new UrlConverter(
             $container->get(FileRepository::class),
             $container->get(SavingUrlToTheFile::class),
@@ -91,4 +91,5 @@ return [
             $container->get('urlConverter.codeLength'),
         );
     },
+
 ];

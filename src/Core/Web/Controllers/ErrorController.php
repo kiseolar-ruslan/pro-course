@@ -10,4 +10,9 @@ class ErrorController
     {
         return 'Route not found!';
     }
+
+    public function errorUrlConverterAction(): string
+    {
+        return 'Invalid URL!';
+    }
 }

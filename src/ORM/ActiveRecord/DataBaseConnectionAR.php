@@ -26,15 +26,15 @@ class DataBaseConnectionAR
     ) {
         $dBManager = new Manager();
         $dBManager->addConnection([
-                                      "driver"    => $dbDriver,
-                                      "host"      => $host,
-                                      "database"  => $database,
-                                      "username"  => $user,
-                                      "password"  => $pass,
-                                      "charset"   => $charset,
-                                      "collation" => $collation,
-                                      "prefix"    => $prefix
-                                  ]);
+            "driver"    => $dbDriver,
+            "host"      => $host,
+            "database"  => $database,
+            "username"  => $user,
+            "password"  => $pass,
+            "charset"   => $charset,
+            "collation" => $collation,
+            "prefix"    => $prefix
+        ]);
 
         $dBManager->bootEloquent();
     }

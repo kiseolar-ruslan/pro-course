@@ -3,33 +3,65 @@
 declare(strict_types=1);
 
 use App\Core\Web\Controllers\ErrorController;
+use App\Core\Web\Controllers\UrlConverterController;
 use App\Core\Web\Controllers\UserController;
-use App\Core\Web\Exceptions\RouteNotFoundException;
+use App\DIContainer\Container;
+use App\ORM\ActiveRecord\DataBaseConnectionAR;
 
-//$container = require_once __DIR__ . '/../src/DIContainer/bootstrap.php';
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
-$pathParts = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
-
-$domain = array_shift($pathParts);
+/**
+ * @var Container $container
+ */
+$container = require_once __DIR__ . '/../src/DIContainer/bootstrap.php';
+$container->get(DataBaseConnectionAR::class);
 
 $routs = [
-    'user' => UserController::class,
+    'user'     => [UserController::class => 'indexAction'],
+    'user/all' => [UserController::class => 'allUsersAction'],
+    'encode'   => [UrlConverterController::class => 'encode'],
+    'decode'   => [UrlConverterController::class => 'decode'],
 ];
 
 try {
-    if (false === isset($routs[$domain])) {
-        throw new RouteNotFoundException();
-    }
+    $key        = array_key_first($_GET);
+    $value      = current($_GET);
+    $routsValue = $routs[$key];
+    $createObj  = $container->get(array_key_first($routsValue));
 
-    $controller    = $routs[$domain];
-    $objController = new $controller();
-
-    echo $objController->indexAction((int)$pathParts[0]);
-} catch (Throwable $e) {
-    $objController = new ErrorController();
-    echo $objController->error404Action();
+    echo call_user_func([$createObj, $key], $value);
+} catch (Throwable) {
+    /**
+     * @var ErrorController $error
+     */
+    $error = $container->get(ErrorController::class);
+    echo $error->errorUrlConverterAction();
 }
+
+exit;
+
+
+//$uri       = substr($_SERVER['REQUEST_URI'], 1);
+//$pathParts = [];
+//
+//try {
+//    if (true === isset($routs[$uri])) {
+//        $routeData = $routs[$uri];
+//    } else {
+//        $pathParts = explode('/', $uri);
+//        $domain    = array_shift($pathParts);
+//
+//        if (false === isset($routs[$domain])) {
+//            throw new RouteNotFoundException();
+//        }
+//
+//        $routeData = $routs[$domain];
+//    }
+//
+//    $objController = $container->get(array_key_first($routeData));
+//
+//    echo call_user_func_array([$objController, current($routeData)], $pathParts);
+//} catch (Throwable $e) {
+//    $objController = new ErrorController();
+//    echo $objController->error404Action();
+//}
 
 exit;
