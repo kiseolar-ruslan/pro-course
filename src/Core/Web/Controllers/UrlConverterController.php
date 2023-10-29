@@ -9,7 +9,7 @@ use App\UrlConverter\UrlConverter;
 
 class UrlConverterController
 {
-    //Hard binding on the 'UrlConverter' class
+    //Problem – hard binding on the 'UrlConverter' class
     public function __construct(protected UrlConverter $urlConverter)
     {
     }

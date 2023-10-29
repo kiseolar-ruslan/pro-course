@@ -17,17 +17,18 @@ $container->get(DataBaseConnectionAR::class);
 $routs = [
     'user'     => [UserController::class => 'indexAction'],
     'user/all' => [UserController::class => 'allUsersAction'],
-    'encode'   => [UrlConverterController::class => 'encode'],
-    'decode'   => [UrlConverterController::class => 'decode'],
+    'url'  => [UrlConverterController::class => 'encode'],
+    'code' => [UrlConverterController::class => 'decode'],
 ];
 
 try {
     $key        = array_key_first($_GET);
     $value      = current($_GET);
     $routsValue = $routs[$key];
+    $execMethod = current($routsValue);
     $createObj  = $container->get(array_key_first($routsValue));
 
-    echo call_user_func([$createObj, $key], $value);
+    echo call_user_func([$createObj, $execMethod], $value);
 } catch (Throwable) {
     /**
      * @var ErrorController $error
