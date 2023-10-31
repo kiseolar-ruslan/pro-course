@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Web\Controllers;
+namespace App\Core\Web\Services;
 
-use App\Core\Web\Services\UrlConverterService;
+use App\UrlConverter\UrlConverter;
 
-class UrlConverterController
+class UrlConverterService
 {
-    //Problem – duplicate code
-    public function __construct(protected UrlConverterService $urlConverter)
+    public function __construct(protected UrlConverter $urlConverter)
     {
     }
 
