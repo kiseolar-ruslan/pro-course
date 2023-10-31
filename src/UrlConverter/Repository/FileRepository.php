@@ -19,13 +19,13 @@ class FileRepository implements ICodeRepository
 
     public function getDataFromStorage(): void
     {
-        if (file_exists($this->dataFileName) === true) {
+        if (true === file_exists($this->dataFileName)) {
             $content = file_get_contents($this->dataFileName);
             $this->dataContainer = (array)json_decode($content, true);
         }
     }
 
-    public function CodeIsset(string $code): bool
+    public function codeIsset(string $code): bool
     {
         return isset($this->dataContainer[$code]);
     }
@@ -35,6 +35,8 @@ class FileRepository implements ICodeRepository
      */
     public function getUrlByCode(string $code): string
     {
+        $this->getDataFromStorage();
+
         if (false === $this->codeIsset($code)) {
             throw new InvalidArgumentException();
         }

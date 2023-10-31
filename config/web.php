@@ -29,5 +29,5 @@ return [
         return new UrlConverterService(
             $container->get('databaseUrlConverter')
         );
-    }
+    },
 ];
