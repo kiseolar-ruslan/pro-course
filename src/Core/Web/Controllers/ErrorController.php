@@ -13,6 +13,6 @@ class ErrorController
 
     public function errorUrlConverterAction(): string
     {
-        return 'Invalid URL!';
+        return 'Invalid data!';
     }
 }
